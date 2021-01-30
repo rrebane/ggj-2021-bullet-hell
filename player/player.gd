@@ -63,6 +63,7 @@ func dash():
 	VELOCITY.x = X_DIR * DASH_SPEED;
 	VELOCITY.y = Y_DIR * DASH_SPEED;
 	DASH_FRAMES -= 1;
+	$Graphics/Trail.emitting = true;
 	if DASH_FRAMES == 0:
 		DASHING = false;
 		yield(get_tree().create_timer(DASH_COOLDOWN_DURATION), "timeout")
