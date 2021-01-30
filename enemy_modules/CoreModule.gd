@@ -27,3 +27,6 @@ func fire():
 	fire_rotation_offset += fire_rotation_step
 	while fire_rotation_offset > 1.0:
 		fire_rotation_offset -= 1.0
+
+func dash_kill():
+	pass

@@ -11,15 +11,24 @@ onready var DASH_FRAMES = 6;
 onready var X_DIR = 0;
 onready var Y_DIR = 0;
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+var destroyed = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	$EnemyDetector.connect("body_entered", self, "hurt_enemy")
+
 func _physics_process(delta):
 	handle_movement(delta);
-	pass
+	
+	if DASHING:
+		modulate = Color(255, 255, 255)
+	else:
+		modulate = Color(0, 0, 0)
 
+func hurt_enemy(coll):
+	if destroyed:
+		return
+	if DASHING and coll.has_method("dash_kill"):
+		coll.dash_kill()
 
 func handle_movement(_delta):
 	VELOCITY = Vector2.ZERO
@@ -57,8 +66,8 @@ func dash():
 	if DASH_FRAMES == 0:
 		DASHING = false;
 		yield(get_tree().create_timer(DASH_COOLDOWN_DURATION), "timeout")
-		print("end")
 		DASH_ON_COOLDOWN = false;
 	
 func hurt():
-	print("I got hurt")
+	if DASHING:
+		pass

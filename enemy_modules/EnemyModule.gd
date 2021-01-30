@@ -5,6 +5,7 @@ class_name EnemyModule
 onready var player_detector : Area2D
 
 var dead = false
+var particles_obj = preload("res://effects/ModuleDestroyedParticles.tscn")
 
 signal died
 
@@ -19,10 +20,16 @@ func hurt_player(coll):
 
 func _process(delta):
 	pass
+	
+func dash_kill():
+	kill()
 
 func kill():
 	if dead:
 		return
 	dead = true
+	var particles_inst = particles_obj.instance()
+	get_tree().get_root().add_child(particles_inst)
+	particles_inst.global_position = global_position
 	emit_signal("died")
 	queue_free()

@@ -23,12 +23,17 @@ func _physics_process(delta):
 		if coll.collider.has_method("hurt"):
 			coll.collider.hurt()
 		destroy()
+	if destroyed:
+		if !$DestroyedParticles.emitting:
+			queue_free()
 
 func destroy():
 	destroyed = true
 	#$QueueFreeTimer.start()
+	$DestroyedParticles.restart()
+	$DestroyedParticles.emitting = true
 	$CollisionShape2D.set_deferred("disabled", true)
+	$Graphics/Sprite.hide()
 	#$HitSound.play()
 	#$Graphics/AnimationPlayer.play("die")
 	move_vec = Vector2.ZERO
-	queue_free()
