@@ -1,16 +1,13 @@
 extends KinematicBody2D
 
 onready var VELOCITY = Vector2.ZERO;
-onready var DASH_SPEED = 1000;
-onready var DRAG = 0.1;
-onready var SPEED = 250;
-onready var PRE_DASH_VELOCITY = Vector2.ZERO;
+export var DASH_SPEED = 450;
+export var SPEED = 150;
 onready var DASHING = false;
 onready var DASH_ON_COOLDOWN = false;
-onready var DASH_COOLDOWN_DURATION = 0.5;
-onready var DASH_DURATION = 10;
-onready var DASH_MULTIPLIER = 2;
-onready var DASH_FRAMES = 10;
+export var DASH_COOLDOWN_DURATION = 0.5;
+export var DASH_DURATION = 8;
+onready var DASH_FRAMES = 6;
 onready var X_DIR = 0;
 onready var Y_DIR = 0;
 
@@ -24,7 +21,7 @@ func _physics_process(delta):
 	pass
 
 
-func handle_movement(delta):
+func handle_movement(_delta):
 	VELOCITY = Vector2.ZERO
 	if not DASHING:
 		if Input.is_action_pressed("down"):
@@ -52,7 +49,6 @@ func handle_movement(delta):
 	if DASHING:
 		dash();
 	move_and_slide(VELOCITY);
-	
 	
 func dash():
 	VELOCITY.x = X_DIR * DASH_SPEED;
