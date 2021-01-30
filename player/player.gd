@@ -27,16 +27,16 @@ func _physics_process(delta):
 func handle_movement(delta):
 	VELOCITY = Vector2.ZERO
 	if not DASHING:
-		if Input.is_action_pressed("up"):
+		if Input.is_action_pressed("down"):
 			VELOCITY.y = SPEED;
 			Y_DIR = 1;
-		if Input.is_action_pressed("down"):
+		if Input.is_action_pressed("up"):
 			VELOCITY.y = -SPEED;
 			Y_DIR = -1;
-		if Input.is_action_pressed("left"):
+		if Input.is_action_pressed("right"):
 			VELOCITY.x = SPEED;
 			X_DIR = 1;
-		if Input.is_action_pressed("right"):
+		if Input.is_action_pressed("left"):
 			VELOCITY.x = -SPEED;
 			X_DIR = -1;
 		if Input.is_action_just_released("left") or Input.is_action_just_released("right"):

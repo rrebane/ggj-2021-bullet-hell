@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://enemies/CoreModule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Node2D"]
+
+[node name="CoreModule" parent="." instance=ExtResource( 1 )]
+position = Vector2( 458.413, 119.471 )
+num_bullet_arrays = 2
+fire_rotation_step = 0.1
+fire_rate = 0.3
+
+[node name="player" parent="." instance=ExtResource( 2 )]
