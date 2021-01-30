@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="ggj-2021-bullet-hell"
-run/main_scene="res://levels/Level1.tscn"
+run/main_scene="res://menus/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelManager="*res://LevelManager.gd"
 
 [display]
 
