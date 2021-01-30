@@ -4,8 +4,10 @@
 
 [node name="ModuleDestroyedParticles" type="CPUParticles2D"]
 position = Vector2( 0, 0.12989 )
+emitting = false
 amount = 50
 lifetime = 0.5
+one_shot = true
 explosiveness = 0.5
 emission_shape = 1
 emission_sphere_radius = 3.0
