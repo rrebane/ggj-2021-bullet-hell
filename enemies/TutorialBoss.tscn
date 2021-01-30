@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy_modules/CoreModule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/TutorialBoss.gd" type="Script" id=2]
+[ext_resource path="res://enemy_modules/BlankModule.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemy_modules/SingleGunModule.tscn" type="PackedScene" id=4]
+
+[node name="TutorialBoss" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CoreModule" parent="." instance=ExtResource( 1 )]
+num_bullet_arrays = 2
+fire_rate = 0.2
+
+[node name="BlankModule" parent="." instance=ExtResource( 3 )]
+position = Vector2( -35, 0 )
+
+[node name="BlankModule8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 35, 35 )
+
+[node name="BlankModule7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 35, -35 )
+
+[node name="BlankModule6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -35 )
+
+[node name="BlankModule5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 35 )
+
+[node name="BlankModule4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -35, 35 )
+
+[node name="BlankModule3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -35, -35 )
+
+[node name="BlankModule2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 35, 0 )
+
+[node name="SingleGunModule" parent="." instance=ExtResource( 4 )]
+position = Vector2( -70, 0 )
+
+[node name="SingleGunModule2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 70, 0 )

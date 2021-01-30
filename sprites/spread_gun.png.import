@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/square.png-c19a43c04aed30a703bfda1941f1661d.stex"
+path="res://.import/spread_gun.png-ce603185a7d75714292e846f47a0f7a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/square.png"
-dest_files=[ "res://.import/square.png-c19a43c04aed30a703bfda1941f1661d.stex" ]
+source_file="res://sprites/spread_gun.png"
+dest_files=[ "res://.import/spread_gun.png-ce603185a7d75714292e846f47a0f7a0.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

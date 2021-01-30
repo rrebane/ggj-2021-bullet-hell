@@ -9,14 +9,11 @@ var bullet_obj = preload("res://projectiles/EnemyEnergyBullet.tscn")
 var fire_rotation_offset = 0.0
 var cur_fire_time = 0.0
 
-func _ready():
-	pass
-
 func _process(delta):
 	cur_fire_time += delta
-	if cur_fire_time >= fire_rate:
+	while cur_fire_time >= fire_rate:
 		fire()
-		cur_fire_time = 0.0
+		cur_fire_time -= fire_rate
 
 func fire():
 	var angle_between_arrays = 2 * PI / num_bullet_arrays
@@ -28,5 +25,5 @@ func fire():
 		bullet_inst.move_vec = Vector2.RIGHT.rotated(bullet_angle + fire_rotation_offset * angle_between_arrays)
 
 	fire_rotation_offset += fire_rotation_step
-	if fire_rotation_offset > 1.0:
-		fire_rotation_offset = 0.0
+	while fire_rotation_offset > 1.0:
+		fire_rotation_offset -= 1.0

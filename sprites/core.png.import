@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cannon.png-432e7aee659e74ff791f0cb7e482d57c.stex"
+path="res://.import/core.png-bff53329fcbe6d1ddcadf4f29de00920.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/cannon.png"
-dest_files=[ "res://.import/cannon.png-432e7aee659e74ff791f0cb7e482d57c.stex" ]
+source_file="res://sprites/core.png"
+dest_files=[ "res://.import/core.png-bff53329fcbe6d1ddcadf4f29de00920.stex" ]
 
 [params]
 

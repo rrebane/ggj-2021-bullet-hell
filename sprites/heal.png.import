@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/core.png-c5b2d44c66471f121287c0ed49bb07ef.stex"
+path="res://.import/heal.png-5ff987daf02b7986e5fd6f285cee5a45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/core.png"
-dest_files=[ "res://.import/core.png-c5b2d44c66471f121287c0ed49bb07ef.stex" ]
+source_file="res://sprites/heal.png"
+dest_files=[ "res://.import/heal.png-5ff987daf02b7986e5fd6f285cee5a45.stex" ]
 
 [params]
 

@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-var move_speed = 100
+export var move_speed = 150
 var move_vec : Vector2
 var destroyed = false
 
 func _ready():
 	$PlayerDetector.connect("body_entered", self, "hurt_player")
+	$DeleteTimer.start()
 
 func hurt_player(coll):
 	if destroyed:
@@ -25,8 +26,9 @@ func _physics_process(delta):
 
 func destroy():
 	destroyed = true
-	$DeleteTimer.start()
+	#$QueueFreeTimer.start()
 	$CollisionShape2D.set_deferred("disabled", true)
 	#$HitSound.play()
 	#$Graphics/AnimationPlayer.play("die")
 	move_vec = Vector2.ZERO
+	queue_free()

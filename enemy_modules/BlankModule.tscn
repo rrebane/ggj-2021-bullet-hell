@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://sprites/square.png" type="Texture" id=1]
-[ext_resource path="res://enemies/CoreModule.gd" type="Script" id=2]
+[ext_resource path="res://sprites/base_module.png" type="Texture" id=1]
+[ext_resource path="res://enemy_modules/BlankModule.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.9121, 15.8416 )
+extents = Vector2( 63.8147, 63.3195 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15.9576, 15.9781 )
+extents = Vector2( 63.0595, 62.9419 )
 
-[node name="CoreModule" type="KinematicBody2D"]
+[node name="BlankModule" type="KinematicBody2D"]
+scale = Vector2( 0.25, 0.25 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
