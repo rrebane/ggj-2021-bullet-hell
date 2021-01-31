@@ -15,6 +15,7 @@ onready var DASH_FRAMES = 6
 onready var X_DIR = 0
 onready var Y_DIR = 0
 
+var has_gun = false;
 var invulnerable = false
 var destroyed = false
 var particles_obj = preload("res://effects/PlayerDestroyedParticles.tscn")
@@ -72,6 +73,8 @@ func handle_movement(_delta):
 			DASH_FRAMES = DASH_DURATION;
 			DASH_ON_COOLDOWN = true;
 			DASHING = true;
+			if has_gun:
+				$player_gun.fire();
 #
 	if DASHING:
 		dash();
@@ -90,13 +93,14 @@ func dash():
 		DASH_ON_COOLDOWN = false;
 	
 func hurt():
+
 	if destroyed:
 		return false
 	if invulnerable:
 		return true
 	if DASHING:
 		return true
-	
+	hide_gun()
 	explosion_sound.play();
 	destroyed = true
 	spawn_destroyed_particles()
@@ -129,3 +133,17 @@ func spawn_destroyed_particles():
 	var particles_inst = particles_obj.instance()
 	get_tree().get_root().add_child(particles_inst)
 	particles_inst.global_position = global_position
+	
+func pickup(type_of_pickup):
+	show_gun();
+	
+	print("Called pickup from player")
+	
+func show_gun():
+	has_gun = true;
+	$player_gun.visible = true;
+	
+func hide_gun():
+	has_gun = false;
+	$player_gun.visible = false;
+	

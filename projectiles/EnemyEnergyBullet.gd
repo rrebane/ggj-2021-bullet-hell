@@ -37,3 +37,6 @@ func destroy():
 	#$HitSound.play()
 	#$Graphics/AnimationPlayer.play("die")
 	move_vec = Vector2.ZERO
+	
+func hurt():
+	return true;
