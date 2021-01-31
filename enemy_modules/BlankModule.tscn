@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/base_module.png" type="Texture" id=1]
 [ext_resource path="res://enemy_modules/BlankModule.gd" type="Script" id=2]
+[ext_resource path="res://sfx/explosion.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.1407, 16.0818 )
@@ -28,3 +29,6 @@ collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource( 2 )
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

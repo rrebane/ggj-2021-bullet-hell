@@ -17,7 +17,9 @@ extents = Vector2( 11.5864, 124.137 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 15.1296, 135.699 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=[
+"level",
+]]
 script = ExtResource( 1 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]

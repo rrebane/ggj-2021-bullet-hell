@@ -39,4 +39,5 @@ func destroy():
 	move_vec = Vector2.ZERO
 	
 func hurt():
+	destroy()
 	return true;

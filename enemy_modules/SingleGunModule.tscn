@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemy_modules/SingleGun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/base_module.png" type="Texture" id=2]
 [ext_resource path="res://enemy_modules/SingleGunModule.gd" type="Script" id=3]
 [ext_resource path="res://sfx/cannon_shoot.wav" type="AudioStream" id=4]
+[ext_resource path="res://sfx/explosion.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.89, 15.9893 )
@@ -26,6 +27,7 @@ disabled = true
 texture = ExtResource( 2 )
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource( 2 )
@@ -34,3 +36,6 @@ shape = SubResource( 2 )
 
 [node name="ShootSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )

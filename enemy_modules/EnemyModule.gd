@@ -19,6 +19,7 @@ func hurt_player(coll):
 	if coll.has_method("hurt"):
 		if coll.hurt():
 			kill()
+			
 
 func _process(delta):
 	pass
@@ -30,9 +31,11 @@ func kill():
 	if dead:
 		return
 	dead = true
+	$ExplosionSFX.play()
+	$ExplosionSFX.connect("finished", self, "queue_free")
+	$Graphics.hide()
 	spawn_destroyed_particles()
 	emit_signal("died")
-	queue_free()
 
 func spawn_destroyed_particles():
 	var particles_inst = particles_obj.instance()
