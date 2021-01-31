@@ -6,10 +6,8 @@ onready var health_ui_label = get_node("Label")
 
 func _ready():
 	Events.connect("player_take_damage", self, "on_hurt");
-	pass # Replace with function body.
 
 func on_hurt():
-	print("Received signal")
 	lives -= 1;
 	if lives == 0:
 		LevelManager.load_game_over();
