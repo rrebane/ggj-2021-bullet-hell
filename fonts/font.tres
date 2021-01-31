@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=2]
+antialiased = false
+font_path = "res://fonts/pixeldown.ttf"
+
+[resource]
+size = 10
+outline_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+font_data = SubResource( 2 )
