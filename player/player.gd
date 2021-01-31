@@ -18,11 +18,6 @@ func _ready():
 
 func _physics_process(delta):
 	handle_movement(delta);
-	
-	if DASHING:
-		modulate = Color(255, 255, 255)
-	else:
-		modulate = Color(0, 0, 0)
 
 func hurt_enemy(coll):
 	if destroyed:
