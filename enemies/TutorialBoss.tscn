@@ -9,8 +9,9 @@
 script = ExtResource( 2 )
 
 [node name="CoreModule" parent="." instance=ExtResource( 1 )]
-num_bullet_arrays = 2
-fire_rate = 0.2
+num_bullet_arrays = 1
+fire_rotation_step = 0.05
+fire_rate = 0.1
 
 [node name="BlankModule" parent="." instance=ExtResource( 3 )]
 position = Vector2( -10.0778, -0.018116 )

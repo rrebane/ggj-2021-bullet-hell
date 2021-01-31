@@ -1,22 +1,38 @@
 extends KinematicBody2D
 
-onready var VELOCITY = Vector2.ZERO;
-export var DASH_SPEED = 450;
-export var SPEED = 150;
-onready var DASHING = false;
-onready var DASH_ON_COOLDOWN = false;
-export var DASH_COOLDOWN_DURATION = 0.5;
-export var DASH_DURATION = 8;
-onready var DASH_FRAMES = 6;
-onready var X_DIR = 0;
-onready var Y_DIR = 0;
+export var SPEED = 75
+export var DASH_COOLDOWN_DURATION = 0.5
+export var DASH_DURATION = 8
+export var start_lives = 20
+export var invulnerability_duration = 2
 
+onready var DASH_SPEED = SPEED * 3
+onready var VELOCITY = Vector2.ZERO
+onready var DASHING = false
+onready var DASH_ON_COOLDOWN = false
+onready var start_position = Vector2.ZERO
+onready var DASH_FRAMES = 6
+onready var X_DIR = 0
+onready var Y_DIR = 0
+
+var invulnerable = false
 var destroyed = false
+var particles_obj = preload("res://effects/PlayerDestroyedParticles.tscn")
+var lives = start_lives
+var cur_invulnerability_time = 0.0
 
 func _ready():
 	$EnemyDetector.connect("body_entered", self, "hurt_enemy")
+	
+	start_position = position
 
 func _physics_process(delta):
+	if destroyed:
+		return
+	if invulnerable:
+		cur_invulnerability_time += delta
+		if cur_invulnerability_time >= invulnerability_duration:
+			invulnerable = false
 	handle_movement(delta);
 
 func hurt_enemy(coll):
@@ -65,5 +81,36 @@ func dash():
 		DASH_ON_COOLDOWN = false;
 	
 func hurt():
+	if destroyed:
+		return
+	if invulnerable:
+		return
 	if DASHING:
-		pass
+		return
+	
+	destroyed = true
+	spawn_destroyed_particles()
+	VELOCITY = Vector2.ZERO
+	DASHING = false
+	$Graphics/Sprite.hide()
+
+	if lives > 0:
+		lives -= 1
+		$RespawnTimer.start()
+
+func respawn():
+	if !destroyed:
+		return
+	if lives <= 0:
+		return
+
+	position = start_position
+	$Graphics/Sprite.show()
+	destroyed = false
+	invulnerable = true
+	cur_invulnerability_time = 0.0
+
+func spawn_destroyed_particles():
+	var particles_inst = particles_obj.instance()
+	get_tree().get_root().add_child(particles_inst)
+	particles_inst.global_position = global_position

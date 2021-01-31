@@ -11,6 +11,8 @@ func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 
 func _process(delta):
+	if player.destroyed:
+		return
 	cur_fire_time += delta
 	while cur_fire_time >= fire_rate:
 		fire()

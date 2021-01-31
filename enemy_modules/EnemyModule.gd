@@ -28,8 +28,11 @@ func kill():
 	if dead:
 		return
 	dead = true
+	spawn_destroyed_particles()
+	emit_signal("died")
+	queue_free()
+
+func spawn_destroyed_particles():
 	var particles_inst = particles_obj.instance()
 	get_tree().get_root().add_child(particles_inst)
 	particles_inst.global_position = global_position
-	emit_signal("died")
-	queue_free()

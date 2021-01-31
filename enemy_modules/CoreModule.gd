@@ -3,17 +3,25 @@ extends EnemyModule
 export var num_bullet_arrays = 5
 export var fire_rotation_step = 0.3
 export var fire_rate = 0.5
+export var pause_duration = 3
 
 var bullet_obj = preload("res://projectiles/EnemyEnergyBullet.tscn")
 
 var fire_rotation_offset = 0.0
 var cur_fire_time = 0.0
+var cur_pause_time = 0.0
+var paused = false
 
 func _process(delta):
-	cur_fire_time += delta
-	while cur_fire_time >= fire_rate:
-		fire()
-		cur_fire_time -= fire_rate
+	if paused:
+		cur_pause_time += delta
+		if cur_pause_time >= pause_duration:
+			paused = false
+	else:
+		cur_fire_time += delta
+		while cur_fire_time >= fire_rate:
+			fire()
+			cur_fire_time -= fire_rate
 
 func fire():
 	var angle_between_arrays = 2 * PI / num_bullet_arrays
@@ -27,6 +35,13 @@ func fire():
 	fire_rotation_offset += fire_rotation_step
 	while fire_rotation_offset > 1.0:
 		fire_rotation_offset -= 1.0
+		pause_fire()
 
-func dash_kill():
-	pass
+#func dash_kill():
+#	pass
+
+func pause_fire():
+	if paused:
+		return
+	paused = true
+	cur_pause_time = 0.0

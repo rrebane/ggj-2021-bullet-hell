@@ -1,16 +1,44 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://enemies/TutorialBoss.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 200.679, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 202.73, 12.0619 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.5864, 124.137 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15.1296, 135.699 )
+
 [node name="World" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 72.5551, 121.733 )
+position = Vector2( 109.665, 122.106 )
 
 [node name="TutorialBoss" parent="." instance=ExtResource( 1 )]
-position = Vector2( 68.0497, 59.8756 )
-x_radius = 50.0
-y_radius = 50.0
+position = Vector2( 108.516, 21.6469 )
 x_rate = 0.3
 y_rate = 0.15
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 186.854, -6.52686 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 118.229, 147.88 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -8.76462, 106.854 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 267.601, 102.378 )
+shape = SubResource( 4 )

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var move_speed = 150
+export var move_speed = 75
 var move_vec : Vector2
 var destroyed = false
 
@@ -30,8 +30,8 @@ func _physics_process(delta):
 func destroy():
 	destroyed = true
 	#$QueueFreeTimer.start()
-	$DestroyedParticles.restart()
-	$DestroyedParticles.emitting = true
+	#$DestroyedParticles.restart()
+	#$DestroyedParticles.emitting = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Graphics/Sprite.hide()
 	#$HitSound.play()
