@@ -19,11 +19,14 @@ var y_angle = PI
 var cur_state = STATES.ENTERING_ARENA
 var cur_enter_arena_time = 0.0
 var cur_idle_time = 0.0
+var dead = false
 
 onready var start_position = Vector2.ZERO
 onready var prev_position = Vector2.ZERO
 onready var enter_arena_start_position = Vector2.ZERO
 onready var enter_arena_end_position = Vector2.ZERO
+
+signal died
 
 func _ready():
 	start_position = position
@@ -43,6 +46,8 @@ func _physics_process(delta):
 			enter_arena(delta)
 		STATES.ACTIVE:
 			move_in_pattern(delta)
+	
+	check_if_dead()
 
 func enter_arena(delta):
 	cur_enter_arena_time += delta
@@ -71,3 +76,12 @@ func move_in_pattern(delta):
 	prev_position = position
 	position = cur_position
 	rotation = clamp(position_diff.x, -240.0, 240.0) / 240.0 * PI / 16
+
+func check_if_dead():
+	if dead:
+		return
+	if get_child_count() == 0:
+		dead = true
+		emit_signal("died")
+		queue_free()
+		
