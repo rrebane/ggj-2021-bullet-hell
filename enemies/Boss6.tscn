@@ -1,0 +1,156 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemy_modules/CoreModule.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemies/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://enemy_modules/BlankModule.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemy_modules/SingleGunModule.tscn" type="PackedScene" id=4]
+
+[node name="Boss6" type="Node2D"]
+position = Vector2( 0, 8 )
+script = ExtResource( 2 )
+y_radius = 30.0
+x_rate = 0.075
+y_rate = 0.15
+y_enter_arena_offset = -80
+enter_arena_duration = 4
+
+[node name="CoreModule" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -7.62939e-06 )
+num_bullet_arrays = 6
+fire_rotation_step = 0.05
+fire_rate = 0.05
+
+[node name="BlankModule" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, 30 )
+
+[node name="BlankModule7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 19.8974 )
+
+[node name="BlankModule6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 20 )
+
+[node name="BlankModule5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 29.5124, 29.9226 )
+
+[node name="BlankModule4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 20 )
+
+[node name="BlankModule3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 10.2651 )
+
+[node name="BlankModule20" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, 0 )
+
+[node name="BlankModule21" parent="." instance=ExtResource( 3 )]
+position = Vector2( -30, 0 )
+
+[node name="BlankModule22" parent="." instance=ExtResource( 3 )]
+position = Vector2( -20, 0 )
+
+[node name="BlankModule28" parent="." instance=ExtResource( 3 )]
+position = Vector2( -30, -10 )
+
+[node name="BlankModule29" parent="." instance=ExtResource( 3 )]
+position = Vector2( -20, -10 )
+
+[node name="BlankModule30" parent="." instance=ExtResource( 3 )]
+position = Vector2( -20, -20 )
+
+[node name="BlankModule31" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, -10 )
+
+[node name="BlankModule32" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, -20 )
+
+[node name="BlankModule33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -20 )
+
+[node name="BlankModule34" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -10 )
+
+[node name="BlankModule35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, -10 )
+
+[node name="BlankModule37" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20, -10 )
+
+[node name="BlankModule38" parent="." instance=ExtResource( 3 )]
+position = Vector2( 30, -10 )
+
+[node name="BlankModule39" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20.1471, -20 )
+
+[node name="BlankModule36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, -20 )
+
+[node name="BlankModule23" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, -7.62939e-06 )
+
+[node name="BlankModule24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, 0 )
+
+[node name="BlankModule25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20.1471, 0 )
+
+[node name="BlankModule26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 0 )
+
+[node name="BlankModule2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, 30 )
+
+[node name="SingleGunModule" parent="." instance=ExtResource( 4 )]
+position = Vector2( -20, 50 )
+
+[node name="SingleGunModule2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 50 )
+
+[node name="SingleGunModule3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 20.1471, 50 )
+
+[node name="BlankModule9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 10 )
+
+[node name="BlankModule10" parent="." instance=ExtResource( 3 )]
+position = Vector2( -9.92261, 19.8974 )
+
+[node name="BlankModule11" parent="." instance=ExtResource( 3 )]
+position = Vector2( -20, 30 )
+
+[node name="BlankModule12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 30, 0 )
+
+[node name="BlankModule13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, 10.2651 )
+
+[node name="BlankModule14" parent="." instance=ExtResource( 3 )]
+position = Vector2( -30, 30 )
+
+[node name="BlankModule15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20.1471, 29.7949 )
+
+[node name="BlankModule17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, 20 )
+
+[node name="BlankModule18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 10.2651 )
+
+[node name="BlankModule27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 20, 40 )
+
+[node name="BlankModule40" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10, 40 )
+
+[node name="BlankModule41" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 40 )
+
+[node name="BlankModule42" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, 40 )
+
+[node name="BlankModule43" parent="." instance=ExtResource( 3 )]
+position = Vector2( -20, 40 )
+
+[node name="BlankModule19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 30 )
+
+[node name="BlankModule16" parent="." instance=ExtResource( 3 )]
+position = Vector2( -10, 10 )

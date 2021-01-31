@@ -93,7 +93,6 @@ func dash():
 		DASH_ON_COOLDOWN = false;
 	
 func hurt():
-
 	if destroyed:
 		return false
 	if invulnerable:

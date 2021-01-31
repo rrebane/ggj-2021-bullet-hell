@@ -3,6 +3,9 @@ extends Node2D
 var enemy_objects = [
 	preload("res://enemies/TutorialBoss.tscn"),
 	preload("res://enemies/Boss3.tscn"),
+	preload("res://enemies/Boss4.tscn"),
+	preload("res://enemies/Boss5.tscn"),
+	preload("res://enemies/Boss6.tscn"),
 ]
 
 onready var current_enemy_num = 0
