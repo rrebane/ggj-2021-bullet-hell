@@ -18,8 +18,12 @@ onready var Y_DIR = 0
 var invulnerable = false
 var destroyed = false
 var particles_obj = preload("res://effects/PlayerDestroyedParticles.tscn")
+
 var lives = start_lives
 var cur_invulnerability_time = 0.0
+
+onready var explosion_sound = get_node("ExplosionSFX");
+onready var dash_sound = get_node("DashSFX");
 
 func _ready():
 	$EnemyDetector.connect("body_entered", self, "hurt_enemy")
@@ -74,6 +78,8 @@ func dash():
 	VELOCITY.x = X_DIR * DASH_SPEED;
 	VELOCITY.y = Y_DIR * DASH_SPEED;
 	DASH_FRAMES -= 1;
+	if not dash_sound.playing:
+		dash_sound.play();
 	$Graphics/Trail.emitting = true;
 	if DASH_FRAMES == 0:
 		DASHING = false;
@@ -88,6 +94,7 @@ func hurt():
 	if DASHING:
 		return
 	
+	explosion_sound.play();
 	destroyed = true
 	spawn_destroyed_particles()
 	VELOCITY = Vector2.ZERO

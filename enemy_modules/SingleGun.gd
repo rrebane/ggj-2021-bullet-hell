@@ -6,6 +6,7 @@ var cur_fire_time = 0.0
 
 var bullet_obj = preload("res://projectiles/EnemyEnergyBullet.tscn")
 var player : KinematicBody2D
+onready var shoot_sound = get_node("../ShootSFX");
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
@@ -22,6 +23,7 @@ func _process(delta):
 	rotation = player.global_position.angle_to_point(global_position) + rotation_diff
 
 func fire():
+	shoot_sound.play();
 	var bullet_inst = bullet_obj.instance()
 	get_tree().get_root().add_child(bullet_inst)
 	bullet_inst.global_position = global_position

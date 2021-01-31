@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/player.png" type="Texture" id=1]
 [ext_resource path="res://player/player.gd" type="Script" id=2]
+[ext_resource path="res://sfx/explosion.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/dash.wav" type="AudioStream" id=4]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.0107527, 0.409091 ), 0.0, 0.0, 0, 0, Vector2( 0.971264, 0.331818 ), 0.0, 0.0, 0, 0 ]
@@ -53,4 +55,10 @@ shape = SubResource( 4 )
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="DashSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="timeout" from="RespawnTimer" to="." method="respawn"]
