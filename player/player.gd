@@ -24,6 +24,7 @@ var cur_invulnerability_time = 0.0
 
 onready var explosion_sound = get_node("ExplosionSFX");
 onready var dash_sound = get_node("DashSFX");
+onready var anim_player = get_node("Graphics/AnimationPlayer");
 
 func _ready():
 	$EnemyDetector.connect("body_entered", self, "hurt_enemy")
@@ -36,7 +37,9 @@ func _physics_process(delta):
 	if invulnerable:
 		cur_invulnerability_time += delta
 		if cur_invulnerability_time >= invulnerability_duration:
+			
 			invulnerable = false
+			anim_player.play("idle")
 	handle_movement(delta);
 
 func hurt_enemy(coll):
@@ -115,6 +118,7 @@ func respawn():
 
 	position = start_position
 	$Graphics/Sprite.show()
+	anim_player.play("respawn");
 	destroyed = false
 	invulnerable = true
 	cur_invulnerability_time = 0.0
