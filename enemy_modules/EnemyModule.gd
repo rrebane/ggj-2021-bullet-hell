@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name EnemyModule
 
 onready var player_detector : Area2D
+onready var active = false
 
 var dead = false
 var particles_obj = preload("res://effects/ModuleDestroyedParticles.tscn")
@@ -16,7 +17,8 @@ func _ready():
 
 func hurt_player(coll):
 	if coll.has_method("hurt"):
-		coll.hurt()
+		if coll.hurt():
+			kill()
 
 func _process(delta):
 	pass

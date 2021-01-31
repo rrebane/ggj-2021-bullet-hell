@@ -14,13 +14,17 @@ func _ready():
 func _process(delta):
 	if player.destroyed:
 		return
+	
+	var rotation_diff = get_global_transform().get_rotation() - rotation
+	rotation = player.global_position.angle_to_point(global_position) + rotation_diff
+	
+	if !get_parent().active:
+		return
+
 	cur_fire_time += delta
 	while cur_fire_time >= fire_rate:
 		fire()
 		cur_fire_time -= fire_rate
-	
-	var rotation_diff = get_global_transform().get_rotation() - rotation
-	rotation = player.global_position.angle_to_point(global_position) + rotation_diff
 
 func fire():
 	shoot_sound.play();

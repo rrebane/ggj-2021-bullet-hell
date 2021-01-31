@@ -14,6 +14,8 @@ var cur_pause_time = 0.0
 var paused = false
 
 func _process(delta):
+	if !active:
+		return
 	if paused:
 		cur_pause_time += delta
 		if cur_pause_time >= pause_duration:

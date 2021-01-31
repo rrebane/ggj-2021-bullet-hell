@@ -18,10 +18,10 @@ extents = Vector2( 15.1296, 135.699 )
 [node name="World" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 109.665, 122.106 )
+position = Vector2( 123.278, 119.868 )
 
 [node name="TutorialBoss" parent="." instance=ExtResource( 1 )]
-position = Vector2( 108.516, 21.6469 )
+position = Vector2( 124.554, 52.9758 )
 x_rate = 0.3
 y_rate = 0.15
 

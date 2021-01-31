@@ -65,7 +65,7 @@ func handle_movement(_delta):
 		if Input.is_action_just_released("down") or Input.is_action_just_released("up"):
 			Y_DIR = 0;
 			
-		if Input.is_action_pressed("dash") and not DASH_ON_COOLDOWN:
+		if Input.is_action_pressed("dash") and not DASH_ON_COOLDOWN and VELOCITY != Vector2.ZERO:
 			DASH_FRAMES = DASH_DURATION;
 			DASH_ON_COOLDOWN = true;
 			DASHING = true;
@@ -88,11 +88,11 @@ func dash():
 	
 func hurt():
 	if destroyed:
-		return
+		return false
 	if invulnerable:
-		return
+		return true
 	if DASHING:
-		return
+		return true
 	
 	explosion_sound.play();
 	destroyed = true
@@ -104,6 +104,8 @@ func hurt():
 	if lives > 0:
 		lives -= 1
 		$RespawnTimer.start()
+	
+	return false
 
 func respawn():
 	if !destroyed:
