@@ -4,10 +4,10 @@
 [ext_resource path="res://enemy_modules/BlankModule.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.8147, 63.3195 )
+extents = Vector2( 7.69858, 7.54346 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 63.0595, 62.9419 )
+extents = Vector2( 7.0853, 7.63107 )
 
 [node name="BlankModule" type="KinematicBody2D"]
 scale = Vector2( 0.25, 0.25 )

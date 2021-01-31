@@ -5,10 +5,10 @@
 [ext_resource path="res://sprites/core.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.8147, 63.3195 )
+extents = Vector2( 7.34811, 7.28062 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 63.0595, 62.9419 )
+extents = Vector2( 7.78619, 7.89391 )
 
 [node name="CoreModule" type="KinematicBody2D"]
 scale = Vector2( 0.25, 0.25 )

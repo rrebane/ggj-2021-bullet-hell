@@ -6,11 +6,11 @@
 [node name="World" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 493.118, 545.159 )
+position = Vector2( 72.5551, 121.733 )
 
 [node name="TutorialBoss" parent="." instance=ExtResource( 1 )]
-position = Vector2( 489.945, 209.432 )
-x_radius = 400.0
-y_radius = 200.0
+position = Vector2( 68.0497, 59.8756 )
+x_radius = 50.0
+y_radius = 50.0
 x_rate = 0.3
 y_rate = 0.15
