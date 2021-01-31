@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/font.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -13,12 +19,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 first_level = "res://levels/Level1.tscn"
+about_menu = "res://menus/AboutMenu.tscn"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 6.49646
+margin_top = 8.7189
+margin_right = 139.496
+margin_bottom = 37.7189
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Kugel Hölle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = -0.374359
-margin_top = 90.0724
-margin_right = 132.626
-margin_bottom = 125.072
+margin_left = 4.5528
+margin_top = 71.9036
+margin_right = 137.553
+margin_bottom = 130.904
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,15 +53,19 @@ custom_colors/font_color_pressed = Color( 0.180392, 0.176471, 0.176471, 1 )
 text = "Start game"
 flat = true
 
-[node name="Label" type="Label" parent="VBoxContainer/StartGame"]
-margin_left = 6.87082
-margin_top = -81.3535
-margin_right = 139.871
-margin_bottom = -52.3535
+[node name="AboutMenu" type="Button" parent="VBoxContainer"]
+margin_top = 39.0
+margin_right = 133.0
+margin_bottom = 74.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Kugel Hölle"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color_hover = Color( 0.180392, 0.176471, 0.176471, 1 )
+custom_colors/font_color_pressed = Color( 0.180392, 0.176471, 0.176471, 1 )
+text = "credits"
+flat = true
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutMenu" to="." method="_on_AboutMenu_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fonts/font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://levels/HealthUI.gd" type="Script" id=4]
+[ext_resource path="res://sfx/bgm.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200.679, 10 )
@@ -67,3 +68,7 @@ __meta__ = {
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( 124, 60 )
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true

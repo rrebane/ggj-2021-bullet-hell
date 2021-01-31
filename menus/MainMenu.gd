@@ -5,6 +5,7 @@ extends Control
 # var a = 2
 # var b = "text"
 export(String, FILE) var first_level
+export(String, FILE) var about_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,4 +19,9 @@ func _ready():
 
 func _on_StartGame_pressed():
 	LevelManager.goto_scene(first_level);
+	pass # Replace with function body.
+
+
+func _on_AboutMenu_pressed():
+	LevelManager.goto_scene(about_menu);
 	pass # Replace with function body.
