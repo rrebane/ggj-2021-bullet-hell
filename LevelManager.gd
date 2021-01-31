@@ -2,6 +2,7 @@ extends Node
 
 
 var current_scene = null
+onready var game_over = "res://menus/GameOver.tscn";
 
 func _ready():
 		var root = get_tree().get_root()
@@ -38,3 +39,6 @@ func _deferred_goto_scene(path):
 
 	# optional, to make it compatible with the SceneTree.change_scene() API
 	get_tree().set_current_scene( current_scene )
+
+func load_game_over():
+	goto_scene(game_over);

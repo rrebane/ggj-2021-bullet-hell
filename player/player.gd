@@ -104,6 +104,8 @@ func hurt():
 	DASHING = false
 	$Graphics/Sprite.hide()
 
+	Events.emit_signal("player_take_damage");
+
 	if lives > 0:
 		lives -= 1
 		$RespawnTimer.start()
