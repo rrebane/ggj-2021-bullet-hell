@@ -23,16 +23,13 @@ margin_left = 27.0
 margin_top = 41.0
 margin_right = 228.0
 margin_bottom = 103.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 201.0
 margin_bottom = 29.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Game Over"
+text = "You Win"
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 33.0

@@ -3,6 +3,7 @@ extends Node
 
 var current_scene = null
 onready var game_over = "res://menus/GameOver.tscn";
+onready var win_game = "res://menus/WinGame.tscn";
 
 func _ready():
 		var root = get_tree().get_root()
@@ -42,3 +43,6 @@ func _deferred_goto_scene(path):
 
 func load_game_over():
 	goto_scene(game_over);
+
+func load_win_game():
+	goto_scene(win_game)
